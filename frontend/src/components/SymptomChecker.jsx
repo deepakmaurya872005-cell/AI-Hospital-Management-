@@ -18,7 +18,7 @@ function SymptomChecker() {
     setLoading(true);
 
     const res = await axios.post(
-      "http://localhost:5000/check-symptoms",
+      "http://35.154.66.198:5000/check-symptoms",
       {
         symptoms,
       }
