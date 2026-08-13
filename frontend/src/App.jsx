@@ -80,7 +80,7 @@ const [loading, setLoading] = useState(true);
 
 
 const getPatients = async () => {
-  const res = await axios.get("http://localhost:5000/patients");
+  const res = await axios.get("http://35.154.66.198:5000/patients");
   setPatients(res.data);
 
    console.log(res.data); 
@@ -88,12 +88,12 @@ const getPatients = async () => {
 
 
 const getDoctors = async () => {
-  const res = await axios.get("http://localhost:5000/doctors");
+  const res = await axios.get("http://35.154.66.198:5000/doctors");
   setDoctors(res.data);
 };
 
 const getAppointments = async () => {
-  const res = await axios.get("http://localhost:5000/appointments");
+  const res = await axios.get("http://35.154.66.198:5000/appointments");
   setAppointments(res.data);
 };
 
@@ -122,7 +122,7 @@ const addDoctor = async () => {
     return;
   }
 
-  await axios.post("http://localhost:5000/doctors", {
+  await axios.post("http://35.154.66.198:5000/doctors", {
     name: doctorName,
     specialization,
     experience,
@@ -145,7 +145,7 @@ const addPatient = async () => {
   toast.error("Please fill all fields");
   return;
 }
-  await axios.post("http://localhost:5000/patients", {
+  await axios.post("http://35.154.66.198:5000/patients", {
     name,
     age,
     disease,
@@ -175,7 +175,7 @@ const deletePatient = async (id) => {
 
   if (!confirmDelete) return;
 
-  await axios.delete(`http://localhost:5000/patients/${id}`);
+  await axios.delete(`http://35.154.66.198:5000/patients/${id}`);
 
   //toast.success("Patient Deleted Successfully");
 
@@ -189,7 +189,7 @@ const deleteDoctor = async (id) => {
 
   if (!confirmDelete) return;
 
-  await axios.delete(`http://localhost:5000/doctors/${id}`);
+  await axios.delete(`http://35.154.66.198:5000/doctors/${id}`);
 
   toast.success("Doctor Deleted Successfully");
 
@@ -203,7 +203,7 @@ const updatePatient = async () => {
     return;
   }
 
-  await axios.put(`http://localhost:5000/patients/${editId}`, {
+  await axios.put(`http://35.154.66.198:5000/patients/${editId}`, {
     name,
     age,
     disease,
@@ -237,7 +237,7 @@ if (
   return;
 }
 
-  await axios.post("http://localhost:5000/appointments", {
+  await axios.post("http://35.154.66.198:5000/appointments", {
   patientName,
   doctorName: doctorNameAppointment,
   date: appointmentDate,
@@ -261,7 +261,7 @@ const deleteAppointment = async (id) => {
   if (!window.confirm("Delete Appointment?")) return;
 
   await axios.delete(
-    `http://localhost:5000/appointments/${id}`
+    `http://35.154.66.198:5000/appointments/${id}`
   );
 
   toast.success("Appointment Deleted");
